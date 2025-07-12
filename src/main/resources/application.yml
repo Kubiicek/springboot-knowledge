@@ -1,0 +1,4 @@
+# spring.application.name=beginning_of_everything1
+server:
+  error:
+    include-stacktrace: never
