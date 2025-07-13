@@ -15,10 +15,11 @@ public class AnimeService {
 	private static List<Anime> animes;
 	static {
 		animes = new ArrayList<>(List.of(new Anime(1L, "Boku no Hero"), new Anime(2L, "Berserk")));
+
+		//En: It's almost impossible to have a list because we don't want the user to know the entire database.
+		//Br: quase impossivel ter um listall pois nao queremos que o usuario saiba todo o banco de dados
+		
 	}
-	
-	//En: It's almost impossible to have a list because we don't want the user to know the entire database.
-	//Br: quase impossivel ter um listall pois nao queremos que o usuario saiba todo o banco de dados
 	
 	//private final AnimeRepository animeRepository;
 	public List<Anime> listAll() {
@@ -40,5 +41,10 @@ public class AnimeService {
 	
 	public void delete(long id) {
 		animes.remove(findById(id));
+	}
+
+	public void replace(Anime anime) {
+		delete(anime.getId());
+		animes.add(anime);
 	}
 }
