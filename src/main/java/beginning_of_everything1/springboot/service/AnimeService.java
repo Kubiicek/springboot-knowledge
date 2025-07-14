@@ -1,13 +1,10 @@
 package beginning_of_everything1.springboot.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import beginning_of_everything1.springboot.domain.Anime;
+import beginning_of_everything1.springboot.exception.BadRequestException;
 import beginning_of_everything1.springboot.mapper.AnimeMapper;
 import beginning_of_everything1.springboot.repository.AnimeRepository;
 import beginning_of_everything1.springboot.requests.AnimePostRequestBody;
@@ -30,7 +27,7 @@ public class AnimeService {
 	
 	public Anime findByIdOrThrowBadRequestException(long id) {
 		return animeRepository.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Anime not Found"));
+				.orElseThrow(() -> new BadRequestException("Anime not Found"));
 	}
 	
 	public Anime save(AnimePostRequestBody animePostRequestBody) {

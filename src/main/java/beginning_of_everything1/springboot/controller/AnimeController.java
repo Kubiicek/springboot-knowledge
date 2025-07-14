@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import beginning_of_everything1.springboot.domain.Anime;
-import beginning_of_everything1.springboot.repository.AnimeRepository;
 import beginning_of_everything1.springboot.requests.AnimePostRequestBody;
 import beginning_of_everything1.springboot.requests.AnimePutRequestBody;
 import beginning_of_everything1.springboot.service.AnimeService;
