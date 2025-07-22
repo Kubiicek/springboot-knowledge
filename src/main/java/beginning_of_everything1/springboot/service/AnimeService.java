@@ -9,6 +9,7 @@ import beginning_of_everything1.springboot.mapper.AnimeMapper;
 import beginning_of_everything1.springboot.repository.AnimeRepository;
 import beginning_of_everything1.springboot.requests.AnimePostRequestBody;
 import beginning_of_everything1.springboot.requests.AnimePutRequestBody;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -30,6 +31,7 @@ public class AnimeService {
 				.orElseThrow(() -> new BadRequestException("Anime not Found"));
 	}
 	
+	@Transactional
 	public Anime save(AnimePostRequestBody animePostRequestBody) {
 		return animeRepository.save(AnimeMapper.INSTANCE.toAnime(animePostRequestBody));
 	}
